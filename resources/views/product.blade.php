@@ -17,11 +17,13 @@
       @foreach ($products as $item )
 
       <div class="carousel-item {{ $item['id']==1?'active':'' }}" data-bs-interval="5000">
-            <img src="{{ $item['gallery'] }}" alt="Los Angeles" class="d-block w-100 slider-img">
+            <a href="detail/{{ $item['id'] }}">
+                <img src="{{ $item['gallery'] }}" alt="Los Angeles" class="d-block w-100 slider-img">
             <div class="item-bg">
                 <h3>{{ $item['name'] }}</h3>
                 <p>{{ $item['description'] }}</p>
             </div>
+            </a>
       </div>
 
       @endforeach
@@ -47,10 +49,12 @@
         @foreach ($products as $item )
 
         <div class="tranding-product">
-              <img src="{{ $item['gallery'] }}" alt="Los Angeles" class="tranding-image">
-              <div class="">
-                  <h6>{{ $item['name'] }}</h6>
-              </div>
+             <a href="detail/{{ $item['id'] }}">
+                <img src="{{ $item['gallery'] }}" alt="Los Angeles" class="tranding-image">
+                <div class="">
+                    <h6>{{ $item['name'] }}</h6>
+                </div>
+            </a>
         </div>
 
         @endforeach

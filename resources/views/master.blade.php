@@ -30,7 +30,7 @@
     }
 
     .tranding-image{
-        height: 200px;
+        height: 100px;
     }
 
     .tranding-product{
