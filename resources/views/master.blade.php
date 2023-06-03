@@ -16,6 +16,33 @@
 
 </body>
 
+<style>
+    .slider-img{
+        height: 550px;
+    }
+
+    item-bg{
+        background-color: #babcbf;
+    }
+
+    .custom-product{
+        height: 1000px;
+    }
+
+    .tranding-image{
+        height: 200px;
+    }
+
+    .tranding-product{
+        float: left;
+        width: 20%;
+    }
+
+    .trending-wrapper{
+        margin: auto;
+    }
+</style>
+
 {{-- <script>
     $("button").hover(function(){
   alert("Your jquery function is working!");
