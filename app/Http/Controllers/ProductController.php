@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\cart;
 
 class ProductController extends Controller
 {
@@ -18,6 +19,28 @@ class ProductController extends Controller
         // return Product::find($id);
         $data = Product::find($id);
         return view('detail',['product'=>$data]);
+    }
+    //HAVENOT DONE ON THE HOME PAGE...DO IT LATER,,,
+    function search(Request $req)
+    {
+        $data = Product::where('name','like','%',$req->input('query','%'))->get();
+        return view('search',['products'=>$data]);
+    }
+
+    function addToCart( Request $req )
+    {
+        if($req->session()->has('user'))
+        {
+            $cart= new cart;
+            $cart->user_id=$req->session()->get('user')['id'];
+            $cart->product_id=$req->product_id;
+            $cart->save();
+            // return "Hello";
+        }
+        else
+        {
+            return redirect('/login');
+        }
     }
 
 }
