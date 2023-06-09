@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\cart;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Contracts\Session\Session as SessionSession;
 
@@ -61,7 +62,26 @@ class ProductController extends Controller
 //     } else {
 //         return 0; // or handle the case where the user is not logged in
 //     }
+
 // }
+    function cartlist()
+    {
+        $userId=Session::get('user')['id'];
+        $products=DB::table('cart')
+        ->join('products','cart.product_id','=','products.id')
+        ->where('cart.user_id',$userId)
+        ->select('products.*','cart.id as cart_id')
+        ->get();
+
+        return view('cartlist',['products'=>$products]);
+        // return "Hellow cartlist";
+    }
+
+    function removeCart($id)
+    {
+        cart::destroy($id);
+        return redirect('cartlist');
+    }
 
 
 }

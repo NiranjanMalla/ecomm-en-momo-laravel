@@ -29,7 +29,7 @@ $total = ProductController::cartitem();
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="">cart({{ $total }})</a>
+            <a class="nav-link" aria-current="page" href="/cartlist">cart({{ $total }})</a>
             @if (Session::has('user'))
 
             <li class="nav-item dropdown">
