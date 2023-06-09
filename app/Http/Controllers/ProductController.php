@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\cart;
+use Illuminate\Support\Facades\Session;
+
+use Illuminate\Contracts\Session\Session as SessionSession;
 
 class ProductController extends Controller
 {
@@ -35,6 +38,7 @@ class ProductController extends Controller
             $cart->user_id=$req->session()->get('user')['id'];
             $cart->product_id=$req->product_id;
             $cart->save();
+            return redirect("/");
             // return "Hello";
         }
         else
@@ -42,5 +46,22 @@ class ProductController extends Controller
             return redirect('/login');
         }
     }
+    static function cartitem()
+    {
+        $userId=Session::get('user')['id'];
+        return cart::where('user_id',$userId)->count();
+    }
+
+//     function cartitem()
+// {
+//     $userId = Session::get('user')['id'] ?? null;
+
+//     if ($userId !== null) {
+//         return cart::where('user_id', $userId)->count();
+//     } else {
+//         return 0; // or handle the case where the user is not logged in
+//     }
+// }
+
 
 }
