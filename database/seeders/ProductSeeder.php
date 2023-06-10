@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
 
             [
                 'name'=>"Chicken MO:MO",
-                'price'=>"£26/65psc",
+                'price'=>"25",
                 'description'=>"Delicious with Nepali taste",
                 'category'=>"Mo:Mo",
                 'gallery'=>'https://static.toiimg.com/photo/60275824.cms'
@@ -27,7 +27,7 @@ class ProductSeeder extends Seeder
 
             [
                 'name'=>"Veg MO:MO",
-                'price'=>"£20/65psc",
+                'price'=>"20",
                 'description'=>"Delicious with Nepali taste",
                 'category'=>"Mo:Mo",
                 'gallery'=>'https://st3.depositphotos.com/1491432/16181/i/1600/depositphotos_161818062-stock-photo-traditional-dumpling-momos-and-tomato.jpg'
