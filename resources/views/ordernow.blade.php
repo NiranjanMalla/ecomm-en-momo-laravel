@@ -33,15 +33,20 @@
         </tbody>
       </table>
 
-      <form action="">
+      <form action="/orderplace" method="POST">
+        @csrf
         <div class="mb-3 mt-3">
           <label for="text" class="form-label">Address:</label>
-          <textarea  type="email" placeholder="Enter your address" class="form-control"></textarea>
+          <textarea  type="email" placeholder="Enter your address" class="form-control" name="address"></textarea>
         </div>
+        <div class="mb-3 mt-3">
+            <label for="text" class="form-label" >Contact Number:</label>
+            <input type="text" name="contact_number" placeholder="Enter your phone No." class="text   "></input>
+          </div>
         <div class="mb-3">
           <label for="pwd" class="form-label">Payment Method:</label><br>
-          <input type="radio" name="payment"><span>Online</span><br>
-          <input type="radio" name="payment"><span>Cash on Delivery</span><br>
+          <input type="radio" name="payment" value="cash"><span>Online</span><br>
+          <input type="radio" name="payment" value="cash"><span>Cash on Delivery</span><br>
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
