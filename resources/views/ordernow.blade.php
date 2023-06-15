@@ -37,16 +37,16 @@
         @csrf
         <div class="mb-3 mt-3">
           <label for="text" class="form-label">Address:</label>
-          <textarea  type="email" placeholder="Enter your address" class="form-control" name="address"></textarea>
+          <textarea  type="email" placeholder="Enter your address" class="form-control" name="address" required></textarea>
         </div>
         <div class="mb-3 mt-3">
             <label for="text" class="form-label" >Contact Number:</label>
-            <input type="text" name="contact_number" placeholder="Enter your phone No." class="text   "></input>
+            <input type="text" name="contact_number" placeholder="Enter your phone No." class="text" required></input>
           </div>
         <div class="mb-3">
           <label for="pwd" class="form-label">Payment Method:</label><br>
-          <input type="radio" name="payment" value="cash"><span>Online</span><br>
-          <input type="radio" name="payment" value="cash"><span>Cash on Delivery</span><br>
+          <input type="radio" name="payment" value="cash" required><span>Online</span><br>
+          <input type="radio" name="payment" value="cash" required><span>Cash on Delivery</span><br>
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
