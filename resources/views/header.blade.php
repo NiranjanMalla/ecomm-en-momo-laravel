@@ -40,6 +40,8 @@ $total = ProductController::cartitem();
             </li>
             @else
             <li><a class="nav-link" aria-current="page" href="/login">login  </a></li>
+            <li><a class="nav-link" aria-current="page" href="/register">Register  </a></li>
+
             @endif
 
           </li>

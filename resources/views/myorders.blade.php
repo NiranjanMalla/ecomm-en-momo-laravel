@@ -9,11 +9,11 @@
     <table class="table">
       <thead>
         <tr class="align-text-bottom">
-          <th>Products</th>
+              {{-- <th>Remove from the cart</th> --}}
+      <th>Products</th>
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
-          {{-- <th>Remove from the cart</th> --}}
         </tr>
       </thead>
       <tbody>
