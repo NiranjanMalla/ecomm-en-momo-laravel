@@ -24,18 +24,20 @@ $total = ProductController::cartitem();
           </li>
          </ul>
 
-        <form class="d-flex p-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex p-3"  action="/search" role="search">
+            @csrf
+          <input class="form-control me-2"  name="query" type="text" placeholder="Search" aria-label="Search">
+          <a href="/search" class="btn btn-success">Search</a>
+          {{-- <button class="btn btn-outline-success" type="submit">Search</button> --}}
         </form>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/cartlist">cart({{ $total }})</a>
+          {{-- <li class="nav-item"> --}}
+            <a class="nav-link btn btn-danger" aria-current="page" href="/cartlist"><i class="fa fa-shopping-cart" aria-hidden="true">({{ $total }})</i></a>
             @if (Session::has('user'))
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{ Session::get('user')['name'] }}</a>
+                <a class="nav-link dropdown-toggle btn btn-danger" href="#" role="button" data-bs-toggle="dropdown">{{ Session::get('user')['name'] }}</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/logout">logout</a></li>
+                  <a class="dropdown-item" href="/logout">logout</a>
                 </ul>
             </li>
             @else
@@ -44,7 +46,7 @@ $total = ProductController::cartitem();
 
             @endif
 
-          </li>
+          {{-- </li> --}}
 
       </div>
     </div>

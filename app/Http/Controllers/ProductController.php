@@ -28,8 +28,15 @@ class ProductController extends Controller
     //HAVENOT DONE ON THE HOME PAGE...DO IT LATER,,,
     function search(Request $req)
     {
-        $data = Product::where('name','like','%',$req->input('query','%'))->get();
-        return view('search',['products'=>$data]);
+        $data = Product::where('name','like','%'.$req->input('query').'%')->get();
+        if(count($data) == 0)
+        {
+            return view('noresult');
+        }
+        else
+        {
+            return view('search',['products'=>$data]);
+        }
     }
 
     function addToCart( Request $req )
@@ -119,7 +126,7 @@ class ProductController extends Controller
     function myOrders()
     {
         $userId=Session::get('user')['id'];
-        $orders = $products=DB::table('orders')
+        $orders=DB::table('orders')
         ->join('products','orders.product_id','=','products.id')
         ->where('orders.user_id',$userId)
         ->get();
